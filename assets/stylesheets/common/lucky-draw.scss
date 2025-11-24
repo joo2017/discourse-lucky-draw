@@ -1,0 +1,146 @@
+.lucky-draw-card {
+  position: relative;
+  background: #0f172a; // Slate 900
+  border: 1px solid rgba(236, 72, 153, 0.3); // Pink border
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  // Glow effects
+  .glow-effect {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    filter: blur(4rem);
+    opacity: 0.25;
+    z-index: 0;
+    
+    &.pink { background: #ec4899; top: -2rem; right: -2rem; }
+    &.purple { background: #9333ea; bottom: -2rem; left: -2rem; }
+  }
+
+  // Ensure content is above glow
+  .card-header, .timer-box, .winner-display, .admin-controls, .footer-tip, .rolling-state {
+    position: relative;
+    z-index: 1;
+  }
+
+  h3 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    
+    .d-icon { color: #ec4899; }
+  }
+
+  .timer-box {
+    background: rgba(30, 41, 59, 0.5); // Slate 800/50
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+
+    .label {
+      font-size: 0.75rem;
+      color: #94a3b8; // Slate 400
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .digits {
+      font-family: monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0.5rem 0;
+      
+      &.neon-text {
+        text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+      }
+    }
+
+    .deadline-date {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+  }
+
+  .rolling-state {
+    padding: 2rem 0;
+    .rolling-name {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #facc15;
+    }
+  }
+
+  .winner-display {
+    background: linear-gradient(to bottom, rgba(30, 41, 59, 0.5), rgba(131, 24, 67, 0.2));
+    border: 1px solid rgba(236, 72, 153, 0.3);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+
+    .avatar-wrapper img {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      border: 3px solid #facc15; // Yellow
+      margin-bottom: 1rem;
+    }
+
+    .winner-info {
+      .crown {
+        display: block;
+        color: #facc15;
+        font-weight: bold;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+        .d-icon { margin-right: 0.25rem; }
+      }
+      .username {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: white;
+      }
+    }
+  }
+
+  .draw-btn {
+    width: 100%;
+    background: linear-gradient(to right, #db2777, #9333ea);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem;
+    
+    &:hover {
+      background: linear-gradient(to right, #be185d, #7e22ce);
+    }
+  }
+
+  .footer-tip {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #64748b;
+    border-top: 1px dashed #334155;
+    padding-top: 0.75rem;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
